@@ -28,16 +28,22 @@ class Artist(models.Model):
 
 class Ledger(models.Model):
 	LEDGERS = (
-		('')
+		('1', 'One'),
+		('2', 'Two'),
+		('C1', 'Consignments 1'),
+		('S1', 'Slides 1'),
 		)
 	author = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True)
 	name = models.CharField(max_length=40, choices=LEDGERS, null=True, verbose_name='Name')
 	created_ts = models.DateTimeField(auto_now=True)
 	published_ts = models.DateTimeField(blank=True, null=True)
 
+	def publish(self):
+		self.published_ts = timezone.now()
+		self.save()
+
 	def __str__(self):
 		return self.name
-
 
 class Artwork(models.Model):
 	author = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True)

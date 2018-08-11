@@ -1,0 +1,23 @@
+{% extends 'art/base.html' %}
+{% block content %}
+	<table style="width:100%">
+    	<thead>
+        	<tr>
+        		<th>Name</th>
+        		<th>ok</th>
+                <th>Publish Timestamp</th>
+        	</tr>
+        </thead>
+        {% for ledger in ledgers %}
+        <div class="ledger">
+        	<tbody>
+        		<tr>
+        			<td>{{ ledger.name }}</td>
+        			<td>ok</td>
+        			<td>{{ ledger.published_ts }}</td>
+        		</tr>
+        	</tbody>
+        </div>
+        {% endfor %}
+    </table>
+    {% endblock %}

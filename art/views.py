@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.http import HttpResponse
-from .models import Artwork, Artist
-from .forms import ArtworkForm
+from .models import Artwork, Artist, Ledger
+from .forms import ArtworkForm, ArtistForm
 import fractions
 
 @login_required
@@ -49,3 +49,9 @@ def artwork_edit(request, pk):
 def artist_list(request):
 	artists = Artist.objects.order_by('ln')
 	return render(request, 'art/artist_list.html',{'artists': artists})
+
+
+@login_required
+def ledger_list(request):
+	ledgers = Ledger.objects.order_by('name')
+	return render(request, 'art/ledger_list.html',{'ledgers': ledgers})

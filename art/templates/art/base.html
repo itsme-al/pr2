@@ -11,6 +11,8 @@
         	{% if user.is_authenticated %}
         	 	<p class="top-menu">hi, {{ user.username }}</p><a href="{% url 'artwork_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
         	 	<p class="top-menu"><a href="{% url 'artist_list' %}" class="top-menu">artists</a></p>
+        	 	<p class="top-menu"><a href="{% url 'art_list' %}" class="top-menu">art</a></p>
+        	 	<p class="top-menu"><a href="/admin" class="top-menu">admin</a></p>
         	{% endif %}
         	<h1><a href="/">PR and Co.</a></h1><br>
         	</div>
