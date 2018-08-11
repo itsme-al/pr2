@@ -7,6 +7,7 @@
         		<th>Last</th>
         		<th>Sex</th>
         		<th>Wiki</th>
+        		<th>Edit</th>
         	</tr>
         </thead>
         {% for artist in artists %}
@@ -18,6 +19,7 @@
         			<td>{{ artist.sex }}</td>
         			<td>{{ artist.wiki }}</td>
         			<td>{{ artist.artist_published_ts }}</td>
+        			<td><a class="btn btn-default" href="{% url 'artist_edit' pk=artist.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
         		</tr>
         	</tbody>
         </div>

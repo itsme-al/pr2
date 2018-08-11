@@ -24,7 +24,7 @@ def artwork_new(request):
 			art = form.save(commit=False)
 			art.artwork_ts = timezone.now()
 			art.save()
-			return redirect('artwork_detail', pk=art.pk)
+			return redirect('artwork_list', pk=art.pk)
 		else:
 			form = ArtworkForm()
 		return render(request, 'art/artwork_edit.html', {'form': form})
@@ -49,6 +49,33 @@ def artwork_edit(request, pk):
 def artist_list(request):
 	artists = Artist.objects.order_by('ln')
 	return render(request, 'art/artist_list.html',{'artists': artists})
+
+@login_required
+def artist_new(request):
+    if request.method == "POST":
+        form = ArtistForm(request.POST)
+        if form.is_valid():
+            artist = form.save(commit=False)
+            artist.artist_published_ts = timezone.now()
+            artist.save()
+            return redirect('artist_list')
+    else:
+        form = ArtistForm()
+    return render(request, 'art/artist_edit.html', {'form': form})
+
+@login_required
+def artist_edit(request, pk):
+    artist = get_object_or_404(Artist, pk=pk)
+    if request.method == "POST":
+        form = ArtistForm(request.POST, instance=artist)
+        if form.is_valid():
+            artist = form.save(commit=False)
+            artist.artist_published_ts = timezone.now()
+            artist.save()
+            return redirect('artist_list')
+    else:
+        form = ArtistForm(instance=artist)
+    return render(request, 'art/artist_edit.html', {'form': form})
 
 
 @login_required

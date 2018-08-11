@@ -1,0 +1,8 @@
+{% extends 'art/base.html' %}
+{% block content %}
+	<h3>Edit Artist</h3>
+	<form method="POST" class="artist-form">{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" class="save btn btn-default">Save</button>
+	</form>
+{% endblock %}

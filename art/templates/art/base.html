@@ -9,10 +9,23 @@
     <body>
         <div class="page-header">
         	{% if user.is_authenticated %}
-        	 	<p class="top-menu">hi, {{ user.username }}</p><a href="{% url 'artwork_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-        	 	<p class="top-menu"><a href="{% url 'artist_list' %}" class="top-menu">artists</a></p>
-        	 	<p class="top-menu"><a href="{% url 'art_list' %}" class="top-menu">art</a></p>
-        	 	<p class="top-menu"><a href="/admin" class="top-menu">admin</a></p>
+        	 	<table style="width:50%" class="top-menu">
+        	 		<thead>
+        	 			<tr>
+        	 				<th><p><a href="/admin">admin</a></p></th>
+        	 				<th><p><a href="{% url 'artist_list' %}">artists</a></p></th>
+        	 				<th><p><a href="{% url 'art_list' %}">art</a></p></th>
+        	 			</tr>
+        	 		</thead>
+        	 		<tbody>
+        	 			<tr>
+        	 				<td><a href="" class="top-menu"></a></td>
+        	 				<td><a href="{% url 'artist_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a></td>
+        	 				<td><a href="{% url 'artwork_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a></td>
+        	 			</tr>
+        	 		</tbody>
+        	 	</table>
+        	 	<p class="top-menu">hi, {{ user.username }}</p>
         	{% endif %}
         	<h1><a href="/">PR and Co.</a></h1><br>
         	</div>
