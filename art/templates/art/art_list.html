@@ -1,0 +1,28 @@
+{% extends 'art/base.html' %}
+{% block content %}
+	<table style="width:100%">
+    	<thead>
+        	<tr>
+        		<th colspan="2">PR ID</th>
+        		<th>Artist</th>        								
+        		<th>Artwork</th>
+        		<th>Year</th>
+        		<th>Edit</th>
+        	</tr>
+        </thead>
+        {% for art in arts %}
+        	<div class="art">
+        		<tbody>
+        			<tr>
+        				<td><p>{{ art.artwork_prid_a }}</p></td>
+        				<td><p>{{ art.artwork_prid_b }}</p></td>
+        				<td><p>{{ art.artist }}</p></td>
+        				<td><p><a href="{% url 'artwork_detail' pk=art.pk %}">{{ art.artwork_title }}</a></p></td>
+        				<td><p>{{ art.artwork_yyyy_a }}</p></td>
+        				<td><a class="btn btn-default" href="{% url 'artwork_edit' pk=art.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+        			</tr>
+        		</tbody>
+       		</div>
+       	{% endfor %}
+		</table>
+        {% endblock %}

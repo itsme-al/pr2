@@ -1,0 +1,24 @@
+{% extends 'art/base.html' %}
+{% block content %}
+{% load fractions %}
+    	<table style="width:100%">
+    	<thead>
+        	<tr>
+        		<th colspan="2">PR ID</th>
+        		<th>Artist</th>        								
+        		<th>Artwork</th>
+        		<th>Year</th>
+        	</tr>
+        </thead>
+        <tbody>
+        	<tr>
+        		<td><p>{{ art.artwork_prid_a }}</p></td>
+   				<td><p>{{ art.artwork_prid_b }}</p></td>
+        		<td><p>{{ art.artist }}</p></td>
+        		<td><p><a href="{% url 'artwork_detail' pk=art.pk %}">{{ art.artwork_title }}</a></p></td>
+        		<td><p>{{ art.artwork_yyyy_a }}</p></td>
+        	</tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

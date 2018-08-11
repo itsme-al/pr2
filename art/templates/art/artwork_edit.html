@@ -1,0 +1,8 @@
+{% extends 'art/base.html' %}
+{% block content %}
+	<h3>New Artwork</h3>
+	<form method="POST" class="artwork-form">{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" class="save btn btn-default">Save</button>
+	</form>
+{% endblock %}
