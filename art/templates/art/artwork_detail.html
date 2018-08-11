@@ -12,11 +12,12 @@
         </thead>
         <tbody>
         	<tr>
-        		<td><p>{{ art.artwork_prid_a }}</p></td>
-   				<td><p>{{ art.artwork_prid_b }}</p></td>
+        		<td><p>{{ art.prid_a }}</p></td>
+   				<td><p>{{ art.prid_b }}</p></td>
         		<td><p>{{ art.artist }}</p></td>
         		<td><p><a href="{% url 'artwork_detail' pk=art.pk %}">{{ art.artwork_title }}</a></p></td>
         		<td><p>{{ art.artwork_yyyy_a }}</p></td>
+        		<td><p>{{ art.display_}}
         	</tr>
         </tbody>
     </table>

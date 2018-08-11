@@ -1,0 +1,26 @@
+{% extends 'art/base.html' %}
+{% block content %}
+	<table style="width:100%">
+    	<thead>
+        	<tr>
+        		<th>First</th>
+        		<th>Last</th>
+        		<th>Sex</th>
+        		<th>Wiki</th>
+        	</tr>
+        </thead>
+        {% for artist in artists %}
+        <div class="artist">
+        	<tbody>
+        		<tr>
+        			<td>{{ artist.artist_fn }}</td>
+        			<td>{{ artist.artist_ln }}</td>
+        			<td>{{ artist.artist_sex }}</td>
+        			<td>{{ artist.artist_wiki }}</td>
+        			<td>{{ artist.artist_published_ts }}</td>
+        		</tr>
+        	</tbody>
+        </div>
+        {% endfor %}
+    </table>
+    {% endblock %}
