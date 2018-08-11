@@ -47,5 +47,5 @@ def artwork_edit(request, pk):
 
 @login_required
 def artist_list(request):
-	artists = Artist.objects.order_by('artist_ln')
+	artists = Artist.objects.order_by('ln')
 	return render(request, 'art/artist_list.html',{'artists': artists})

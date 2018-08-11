@@ -8,9 +8,9 @@ class Artist(models.Model):
 		('M', 'Male'),
 		('N/A', 'N/A'),
 		)
-	artist_fn = models.CharField(max_length=100, verbose_name='First Name')
-	artist_ln = models.CharField(max_length=200, verbose_name='Last Name')
-	artist_sex = models.CharField(max_length=3, choices=SEX, null=True, verbose_name='Sex')
+	fn = models.CharField(max_length=100, verbose_name='First Name')
+	ln = models.CharField(max_length=200, verbose_name='Last Name')
+	sex = models.CharField(max_length=3, choices=SEX, null=True, verbose_name='Sex')
 	wiki = models.URLField(null=True)
 	artist_created_ts = models.DateTimeField(auto_now=True)
 	artist_published_ts = models.DateTimeField(blank=True, null=True)
@@ -21,7 +21,7 @@ class Artist(models.Model):
 
 	@property
 	def artist_full_name(self):
-		return '{0} {1}'.format(self.artist_fn, self.artist_ln)
+		return '{0} {1}'.format(self.fn, self.ln)
 	
 	def __str__(self):
 		return self.artist_full_name

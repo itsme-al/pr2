@@ -12,4 +12,4 @@ class ArtworkForm(forms.ModelForm):
 class ArtistForm(forms.ModelForm):
 	class Meta:
 		model = Artist
-		fields = ('artist_fn', 'artist_ln', 'artist_sex', 'wiki')
+		fields = ('fn', 'ln', 'sex', 'wiki')
